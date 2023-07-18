@@ -10,6 +10,7 @@ module.exports = {
     'plugin:react-hooks/recommended',
   ],
   parser: '@typescript-eslint/parser',
+  project: './tsconfig.json',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -18,10 +19,8 @@ module.exports = {
   },
   plugins: ['react-refresh'],
   rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
+    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     '@typescript-eslint/no-non-null-assertion': 'off',
+    'react/prop-types': 0,
   },
-}
+};

@@ -8,3 +8,4 @@ src/routes.ts
 serviceWorker.ts
 e2e
 .vscode
+*.config.ts
