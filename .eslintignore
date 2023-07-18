@@ -1,0 +1,10 @@
+node_modules
+.idea
+build/*
+dist/*
+public/*
+_templates/
+src/routes.ts
+serviceWorker.ts
+e2e
+.vscode
