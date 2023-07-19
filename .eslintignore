@@ -9,3 +9,4 @@ serviceWorker.ts
 e2e
 .vscode
 *.config.ts
+.eslintrc.cjs
