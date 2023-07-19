@@ -8,7 +8,6 @@ module.exports = {
     'plugin:react-hooks/recommended',
   ],
   parser: '@typescript-eslint/parser',
-  project: './tsconfig.json',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
