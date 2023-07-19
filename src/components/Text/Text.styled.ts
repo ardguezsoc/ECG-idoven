@@ -1,7 +1,7 @@
 import { Typography, styled } from '@mui/material';
 
-export const StyledText = styled(Typography)<StyledTextProps>(({ textColor, fontVariant }) => ({
-  color: textColor || '#222',
+export const StyledText = styled(Typography)<StyledTextProps>(({ theme, textColor, fontVariant }) => ({
+  color: textColor || theme.palette.primary.main,
   variant: fontVariant || 'h4',
 }));
 
