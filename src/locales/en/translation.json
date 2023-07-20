@@ -1,0 +1,21 @@
+{
+  "home": "Home",
+  "history": "History",
+  "errors": {
+    "noFilesAdded": "No files added yet",
+    "notFoundPage": {
+      "title": "Oooooops!",
+      "description": "The page you are looking for does not exist.",
+      "redirect": "Go back to the home page"
+    }
+  },
+  "table": {
+    "headers": {
+      "name": "Name",
+      "size": "Size (gb)",
+      "date": "Date",
+      "type": "Type",
+      "extension": "Extension"
+    }
+  }
+}

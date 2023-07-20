@@ -5,6 +5,7 @@ import { styledTheme } from './themes';
 import { ThemeProvider } from '@mui/material/styles';
 import { BrowserRouter } from 'react-router-dom';
 import { HistoryProvider } from './contexts/History/HistoryContext.tsx';
+import './i18n';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
