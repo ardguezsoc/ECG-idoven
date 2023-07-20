@@ -1,5 +1,14 @@
 import { createTheme } from '@mui/material/styles';
 
+declare module '@mui/material/styles' {
+  interface Theme {
+    text: {
+      notFound: string;
+      shadow: string;
+    };
+  }
+}
+
 export const theme = {
   palette: {
     primary: {
@@ -14,6 +23,10 @@ export const theme = {
     common: {
       white: '#fff',
     },
+  },
+  text: {
+    notFound: '#676767',
+    shadow: '2px 2px 4px #00000033',
   },
 };
 
