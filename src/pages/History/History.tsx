@@ -1,12 +1,10 @@
 import { useHistory } from '../../hooks';
+import { Table } from '../../components/Table';
+import { Text } from '../../components/Text';
 
 export const History = () => {
-  const { history, setHistoryOfFiles } = useHistory();
-  return (
-    <div>
-      <h1>History</h1>
-      <h2>{history}</h2>
-      <button onClick={() => setHistoryOfFiles('test')}>Click Me</button>
-    </div>
-  );
+  const { history } = useHistory();
+  const headers = ['Name', 'Size (gb)', 'Date', 'Type', 'Extension'];
+
+  return history.length ? <Table rows={history} headers={headers} /> : <Text>No files added yet</Text>;
 };

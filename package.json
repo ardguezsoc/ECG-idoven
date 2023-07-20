@@ -11,7 +11,8 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "precommit": "lint-staged",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "vitest --watch=false"
   },
   "lint-staged": {
     "*.+(js|ts|jsx|tsx)": [
@@ -50,6 +51,7 @@
     "lint-staged": "^13.2.3",
     "prettier": "^3.0.0",
     "typescript": "^5.0.2",
-    "vite": "^4.4.0"
+    "vite": "^4.4.0",
+    "vitest": "^0.33.0"
   }
 }
