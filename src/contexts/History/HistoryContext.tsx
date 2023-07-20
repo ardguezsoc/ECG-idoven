@@ -1,8 +1,17 @@
 import React from 'react';
 
+export interface FileInfo {
+  name: string;
+  size: string;
+  date: string;
+  type: string;
+  extension?: string;
+  [key: string]: string | undefined;
+}
+
 type HistoryContextValue = {
-  history: string[];
-  setHistoryOfFiles: (history: string) => void;
+  history: FileInfo[];
+  setHistoryOfFiles: (history: FileInfo) => void;
 };
 
 interface HistoryProviderProps {
@@ -14,9 +23,9 @@ export const HistoryContext: React.Context<HistoryContextValue> = React.createCo
 );
 
 export const HistoryProvider: React.FC<HistoryProviderProps> = ({ children }) => {
-  const [history, setHistory] = React.useState<string[]>([]);
+  const [history, setHistory] = React.useState<FileInfo[]>([]);
 
-  const setHistoryOfFiles = (history: string) => setHistory((prev) => [...prev, history]);
+  const setHistoryOfFiles = (history: FileInfo) => setHistory((prev) => [...prev, history]);
 
   return <HistoryContext.Provider value={{ history, setHistoryOfFiles }}>{children}</HistoryContext.Provider>;
 };
