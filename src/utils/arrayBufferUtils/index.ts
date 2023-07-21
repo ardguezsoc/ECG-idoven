@@ -12,7 +12,6 @@ export const sliceArrayBuffer = (
 ) => {
   const offsetMovement = offsetController.offset + chunkMovement;
   const offsetChunkMovement = offsetController.offsetChunk + chunkSize * chunkMovement;
-  console.log('arrayBuffer', arrayBufferData);
   const chunk = arrayBufferData.slice(offsetMovement * chunkSize, offsetChunkMovement);
   const decodedContent = decodeArrayBuffer(chunk);
   setFileContent(decodedContent);
