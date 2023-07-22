@@ -1,6 +1,5 @@
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { sliceArrayBuffer, decodeArrayBuffer } from '.';
-import { o } from 'vitest/dist/types-198fd1d9.js';
 
 describe('arrayBufferUtils', () => {
   describe('decodeArrayBuffer', () => {
@@ -15,12 +14,12 @@ describe('arrayBufferUtils', () => {
       expect(decodedString).toBe('');
     });
   });
-  describe.only('sliceArrayBuffer', () => {
+  describe('sliceArrayBuffer', () => {
     let arrayBufferData: ArrayBuffer;
     let chunkSize: number;
     beforeAll(() => {
       arrayBufferData = new TextEncoder().encode('test').buffer;
-      chunkSize = 109715200;
+      chunkSize = 10971520;
     });
 
     it('should return the correct offset and offsetChunk', () => {
