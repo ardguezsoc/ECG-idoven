@@ -1,6 +1,7 @@
 {
   "home": "Home",
   "history": "History",
+  "idovenCodeChallenge": "Idoven.ai Coding Challenge",
   "errors": {
     "noFilesAdded": "No files added yet",
     "notFoundPage": {
@@ -16,6 +17,11 @@
       "date": "Date",
       "type": "Type",
       "extension": "Extension"
+    }
+  },
+  "chart": {
+    "yAxis": {
+      "unit": "uv"
     }
   }
 }
