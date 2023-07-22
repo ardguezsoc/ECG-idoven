@@ -1,5 +1,5 @@
 const decoder = new TextDecoder();
-const chunkSize = 109715200;
+const chunkSize = 10971520;
 
 export const decodeArrayBuffer = (arrayBuffer: ArrayBuffer) => decoder.decode(arrayBuffer);
 
@@ -16,4 +16,23 @@ export const sliceArrayBuffer = (
   const decodedContent = decodeArrayBuffer(chunk);
   setFileContent(decodedContent);
   setOffsetController({ offset: offsetMovement, offsetChunk: offsetChunkMovement });
+};
+
+export const parseData = (rawData: string) => {
+  const rows = rawData.split('\n');
+  const labels: number[] = [];
+  const data: number[] = [];
+
+  rows.forEach((row) => {
+    const columns = row.split(',');
+
+    const xValue = parseFloat(columns[0]);
+    const yValue = parseFloat(columns[1]);
+    if (!Number.isNaN(xValue) && !Number.isNaN(yValue)) {
+      labels.push(xValue);
+      data.push(yValue);
+    }
+  });
+
+  return { labels, data };
 };

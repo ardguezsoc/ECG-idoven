@@ -3,6 +3,7 @@ import { Text } from '../../components/Text';
 import { FileHandle } from '../../components/FileHandle/FileHandle';
 import { useTranslation } from 'react-i18next';
 import { sliceArrayBuffer } from '../../utils/arrayBufferUtils';
+import { Chart } from '../../components/Chart';
 
 export interface OffsetController {
   offset: number;
@@ -23,7 +24,7 @@ export const Home = () => {
   return (
     <div>
       <Text>{t('home')}</Text>
-      <FileHandle onChange={handleFileContent} />
+      {fileContent.length ? <Chart chartData={fileContent} /> : <FileHandle onChange={handleFileContent} />}
     </div>
   );
 };
