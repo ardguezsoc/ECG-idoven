@@ -10,7 +10,6 @@ export interface OffsetController {
   offsetChunk: number;
 }
 export const Home = () => {
-  const { t } = useTranslation();
   const [arrayBuffer, setArrayBuffer] = useState(new ArrayBuffer(0));
   const [fileContent, setFileContent] = useState('');
   const [offsetController, setOffsetController] = useState<OffsetController>({ offset: -1, offsetChunk: 0 });
@@ -22,9 +21,6 @@ export const Home = () => {
   };
 
   return (
-    <div>
-      <Text>{t('home')}</Text>
-      {fileContent.length ? <Chart chartData={fileContent} /> : <FileHandle onChange={handleFileContent} />}
-    </div>
+    <div>{fileContent.length ? <Chart chartData={fileContent} /> : <FileHandle onChange={handleFileContent} />}</div>
   );
 };
