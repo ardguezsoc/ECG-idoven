@@ -1,7 +1,10 @@
 {
-  "home": "Home",
   "history": "History",
   "idovenCodeChallenge": "Idoven.ai Coding Challenge",
+  "dragnDrop": {
+    "dropFilesHere": "Drop the files here...",
+    "dragnDropFiles": "Drag and drop some files here..."
+  },
   "errors": {
     "noFilesAdded": "No files added yet",
     "notFoundPage": {
@@ -23,5 +26,8 @@
     "yAxis": {
       "unit": "uv"
     }
+  },
+  "button": {
+    "uploadFile": "Click me To Upload"
   }
 }
