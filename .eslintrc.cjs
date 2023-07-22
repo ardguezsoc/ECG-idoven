@@ -19,5 +19,7 @@ module.exports = {
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     '@typescript-eslint/no-non-null-assertion': 'off',
     'react/prop-types': 0,
+    '@typescript-eslint/no-misused-promises': 1,
+    'no-console': 'error',
   },
 };
