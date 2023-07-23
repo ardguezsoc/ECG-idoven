@@ -6,6 +6,9 @@ declare module '@mui/material/styles' {
       notFound: string;
       shadow: string;
     };
+    common: {
+      lightGrey: string;
+    };
   }
 }
 
@@ -27,6 +30,9 @@ export const theme = {
   text: {
     notFound: '#676767',
     shadow: '2px 2px 4px #00000033',
+  },
+  common: {
+    lightGrey: '#ededed',
   },
 };
 
