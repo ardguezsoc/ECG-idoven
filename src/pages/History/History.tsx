@@ -24,9 +24,6 @@ export const History = () => {
   return (
     <StyledMainContainer>
       <BackArrow goBack={() => navigate('/')} />
-      <Box>
-        <Text variant="h2">{t('historyTitle')}</Text>
-      </Box>
       {history.length ? (
         <Table rows={history} headers={headers} />
       ) : (

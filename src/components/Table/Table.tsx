@@ -5,7 +5,7 @@ import { StyledTable } from '.';
 
 export const Table: React.FC<{ rows: any[]; headers: string[] }> = ({ rows, headers }) => {
   return (
-    <TableContainer component={Paper}>
+    <TableContainer id="tableContainer" component={Paper}>
       <StyledTable>
         <TableHead headers={headers} />
         <TableBody rows={rows} />

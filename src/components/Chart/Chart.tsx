@@ -97,8 +97,8 @@ export const Chart: React.FC<{ chartData: string; resetFile: () => void }> = ({ 
       {/** @ts-ignore */}
       <Line ref={chartRef} options={options} data={chartDataset} />
       <Box>
-        <Button onClick={resetZoom}>{t('resetZoom')}</Button>
-        <Button onClick={resetFile}>{t('uploadNewFile')}</Button>
+        <Button onClick={resetZoom}>{t('button.resetZoom')}</Button>
+        <Button onClick={resetFile}>{t('button.uploadNewFile')}</Button>
       </Box>
     </StyledChartContainer>
   );
