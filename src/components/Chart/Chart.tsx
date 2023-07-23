@@ -38,7 +38,7 @@ export const Chart: React.FC<{ chartData: string }> = ({ chartData = '' }) => {
             enabled: true,
             borderColor: theme.palette.secondary.main,
             borderWidth: 1,
-            backgroundColor: theme.palette.primary.main,
+            backgroundColor: theme.common.lightGrey,
           },
         },
       },
