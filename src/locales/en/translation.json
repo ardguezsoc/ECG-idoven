@@ -3,7 +3,8 @@
   "idovenCodeChallenge": "Idoven.ai Coding Challenge",
   "dragnDrop": {
     "dropFilesHere": "Drop the files here...",
-    "dragnDropFiles": "Drag and drop some files here..."
+    "dragnDropFiles": "Drag and drop some files here...",
+    "conditions": "Only .txt files accepted 📝"
   },
   "errors": {
     "noFilesAdded": "No files added yet",
@@ -13,6 +14,7 @@
       "redirect": "Go back to the home page"
     }
   },
+
   "table": {
     "headers": {
       "name": "Name",
@@ -29,5 +31,6 @@
   },
   "button": {
     "uploadFile": "Click me To Upload"
-  }
+  },
+  "or": "Or"
 }
