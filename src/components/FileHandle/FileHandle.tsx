@@ -15,7 +15,7 @@ interface FileHandleProps {
 
 export const FileHandle: React.FC<FileHandleProps> = ({ onChange }) => {
   const { setHistoryOfFiles } = useHistory();
-  const inputRef = useRef<HTMLInputElement>(null); // Specify the type of the ref here
+  const inputRef = useRef<HTMLInputElement>(null);
   const { t } = useTranslation();
 
   const onDrop = (droppedFile: File[]) => handleFileChange(undefined, droppedFile[0]);
@@ -23,7 +23,7 @@ export const FileHandle: React.FC<FileHandleProps> = ({ onChange }) => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: {
-      text: ['.txt'],
+      'text/html': ['.txt'],
     },
   });
 
@@ -36,9 +36,9 @@ export const FileHandle: React.FC<FileHandleProps> = ({ onChange }) => {
   };
 
   return (
-    <StyledFileHandleContainer $isDragActive={isDragActive}>
+    <StyledFileHandleContainer>
       <Box id="fileHandleDrag" {...getRootProps()}>
-        <input ref={inputRef} type="file" onChange={handleFileChange} {...getInputProps()} />{' '}
+        <input ref={inputRef} type="file" onChange={handleFileChange} {...getInputProps()} accept=".txt" />
         <Box id="fileHandleTextContainer">
           <Text fontVariant="h6">{isDragActive ? t('dragnDrop.dragnDropFiles') : t('dragnDrop.dropFilesHere')}</Text>
           <Box>

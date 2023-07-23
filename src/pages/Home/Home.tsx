@@ -21,7 +21,7 @@ export const Home = () => {
 
   return fileContent.length ? (
     <StyledMainContainer>
-      <Chart chartData={fileContent} />
+      <Chart chartData={fileContent} resetFile={() => setFileContent('')} />
     </StyledMainContainer>
   ) : (
     <StyledMainContainerECG>

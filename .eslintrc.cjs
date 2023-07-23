@@ -21,5 +21,6 @@ module.exports = {
     'react/prop-types': 0,
     '@typescript-eslint/no-misused-promises': 1,
     'no-console': 'error',
+    '@typescript-eslint/ban-ts-comment': 'off',
   },
 };

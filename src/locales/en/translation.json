@@ -30,7 +30,9 @@
     }
   },
   "button": {
-    "uploadFile": "Click me To Upload"
+    "uploadFile": "Click me To Upload",
+    "resetZoom": "Reset Zoom",
+    "uploadNewFile": "Upload New File"
   },
   "or": "Or"
 }

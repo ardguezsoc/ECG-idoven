@@ -1,6 +1,6 @@
 import { Box, styled } from '@mui/material';
 
-export const StyledFileHandleContainer = styled(Box)<StyledFileHandleContainerProps>(({ theme, $isDragActive }) => ({
+export const StyledFileHandleContainer = styled(Box)(({ theme }) => ({
   textAlign: 'center',
   position: 'relative',
   height: '20rem',
@@ -17,7 +17,7 @@ export const StyledFileHandleContainer = styled(Box)<StyledFileHandleContainerPr
     borderRadius: '1rem',
     borderStyle: 'dashed',
     borderColor: theme.palette.primary.main,
-    backgroundColor: $isDragActive ? theme.common.lightGrey : theme.palette.common.white,
+    backgroundColor: theme.palette.common.white,
     boxShadow: theme.text.shadow,
   },
   '#fileHandleTextContainer': {
@@ -27,7 +27,3 @@ export const StyledFileHandleContainer = styled(Box)<StyledFileHandleContainerPr
     justifyContent: 'space-evenly',
   },
 }));
-
-interface StyledFileHandleContainerProps {
-  $isDragActive?: boolean;
-}
