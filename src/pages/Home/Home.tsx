@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { Text } from '../../components/Text';
 import { FileHandle } from '../../components/FileHandle/FileHandle';
-import { useTranslation } from 'react-i18next';
 import { sliceArrayBuffer } from '../../utils/arrayBufferUtils';
 import { Chart } from '../../components/Chart';
+import { StyledMainContainer, StyledMainContainerECG } from './Home.styled';
 
 export interface OffsetController {
   offset: number;
@@ -20,7 +19,13 @@ export const Home = () => {
     sliceArrayBuffer(1, offsetController, auxArrayBuffer, setOffsetController, setFileContent);
   };
 
-  return (
-    <div>{fileContent.length ? <Chart chartData={fileContent} /> : <FileHandle onChange={handleFileContent} />}</div>
+  return fileContent.length ? (
+    <StyledMainContainer>
+      <Chart chartData={fileContent} />
+    </StyledMainContainer>
+  ) : (
+    <StyledMainContainerECG>
+      <FileHandle onChange={handleFileContent} />
+    </StyledMainContainerECG>
   );
 };
