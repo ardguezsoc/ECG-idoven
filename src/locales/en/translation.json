@@ -1,5 +1,5 @@
 {
-  "history": "History",
+  "historyTitle": "Welcome to files history",
   "idovenCodeChallenge": "Idoven.ai Coding Challenge",
   "dragnDrop": {
     "dropFilesHere": "Drop the files here...",
@@ -7,7 +7,10 @@
     "conditions": "Only .txt files accepted 📝"
   },
   "errors": {
-    "noFilesAdded": "No files added yet",
+    "noFilesAdded": {
+      "title": "No files added yet...",
+      "description": "why don't you add some files and come back ?"
+    },
     "notFoundPage": {
       "title": "Oooooops!",
       "description": "The page you are looking for does not exist.",

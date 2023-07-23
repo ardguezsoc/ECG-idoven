@@ -2,6 +2,7 @@ import { Box, styled } from '@mui/material';
 
 export const StyledMainContainer = styled(Box)`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-width: 100vw;
