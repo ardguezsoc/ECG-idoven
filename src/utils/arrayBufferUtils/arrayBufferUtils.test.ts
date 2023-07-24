@@ -35,6 +35,20 @@ describe('arrayBufferUtils', () => {
       expect(setFileContent).toHaveBeenCalledOnce();
       expect(offsetController).toEqual({ offset: 1, offsetChunk: chunkSize });
     });
+
+    it('should return the offset and offsetChunk * 5 due to high chart use', () => {
+      const chunkMovement = 1;
+      const offsetController = { offset: 0, offsetChunk: 0 };
+      const setOffsetController = (fakeOffsetController: { offset: number; offsetChunk: number }) => {
+        offsetController.offset = fakeOffsetController.offset;
+        offsetController.offsetChunk = fakeOffsetController.offsetChunk;
+      };
+      const setFileContent = vi.fn();
+
+      sliceArrayBuffer(chunkMovement, offsetController, arrayBufferData, setOffsetController, setFileContent, true);
+      expect(setFileContent).toHaveBeenCalledOnce();
+      expect(offsetController).toEqual({ offset: 1, offsetChunk: chunkSize * 5 });
+    });
     it('should return the correct offset and offsetChunk when chunkMovement is -1', () => {
       const chunkMovement = -1;
       const offsetController = { offset: 1, offsetChunk: chunkSize };

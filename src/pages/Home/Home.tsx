@@ -21,11 +21,18 @@ export const Home = () => {
   const handleFileContent = async (file: File) => {
     const auxArrayBuffer = await file.arrayBuffer();
     setArrayBuffer(auxArrayBuffer);
-    sliceArrayBuffer(1, offsetController, auxArrayBuffer, setOffsetController, setFileContent);
+    sliceArrayBuffer(1, offsetController, auxArrayBuffer, setOffsetController, setFileContent, formValues.switchValue);
   };
 
   const moveInFile = (offsetMove: 1 | -1) => {
-    sliceArrayBuffer(offsetMove, offsetController, arrayBuffer, setOffsetController, setFileContent);
+    sliceArrayBuffer(
+      offsetMove,
+      offsetController,
+      arrayBuffer,
+      setOffsetController,
+      setFileContent,
+      formValues.switchValue
+    );
   };
 
   const applySettings = (switchValue: boolean, inputValue: number) => {

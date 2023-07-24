@@ -8,11 +8,13 @@ export const sliceArrayBuffer = (
   offsetController: { offset: number; offsetChunk: number },
   arrayBufferData: ArrayBuffer,
   setOffsetController: (offsetController: { offset: number; offsetChunk: number }) => void,
-  setFileContent: (fileContent: string) => void
+  setFileContent: (fileContent: string) => void,
+  highChart?: boolean
 ) => {
+  const chunkSlice = highChart ? chunkSize * 5 : chunkSize;
   const offsetMovement = offsetController.offset + chunkMovement;
-  const offsetChunkMovement = offsetController.offsetChunk + chunkSize * chunkMovement;
-  const chunk = arrayBufferData.slice(offsetMovement * chunkSize, offsetChunkMovement);
+  const offsetChunkMovement = offsetController.offsetChunk + chunkSlice * chunkMovement;
+  const chunk = arrayBufferData.slice(offsetMovement * chunkSlice, offsetChunkMovement);
   const decodedContent = decodeArrayBuffer(chunk);
   setFileContent(decodedContent);
   setOffsetController({ offset: offsetMovement, offsetChunk: offsetChunkMovement });
