@@ -19,7 +19,7 @@ describe('arrayBufferUtils', () => {
     let chunkSize: number;
     beforeAll(() => {
       arrayBufferData = new TextEncoder().encode('test').buffer;
-      chunkSize = 10971520;
+      chunkSize = 1097152;
     });
 
     it('should return the correct offset and offsetChunk', () => {
