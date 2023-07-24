@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FileHandle } from '../../components/FileHandle/FileHandle';
 import { sliceArrayBuffer } from '../../utils/arrayBufferUtils';
 import { Chart, HighChart } from '../../components/Chart';
@@ -37,6 +37,7 @@ export const Home = () => {
 
   const applySettings = (switchValue: boolean, inputValue: number) => {
     setFormValues({ switchValue, inputValue });
+    sliceArrayBuffer(1, { offset: -1, offsetChunk: 0 }, arrayBuffer, setOffsetController, setFileContent, switchValue);
     setModalStatus(false);
   };
 

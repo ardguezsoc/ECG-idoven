@@ -1,5 +1,4 @@
 const decoder = new TextDecoder();
-const chunkSize = 1097152;
 
 export const decodeArrayBuffer = (arrayBuffer: ArrayBuffer) => decoder.decode(arrayBuffer);
 
@@ -11,10 +10,11 @@ export const sliceArrayBuffer = (
   setFileContent: (fileContent: string) => void,
   highChart?: boolean
 ) => {
-  const chunkSlice = highChart ? chunkSize * 5 : chunkSize;
+  const chunkSize = highChart ? 5485760 : 1097152;
+
   const offsetMovement = offsetController.offset + chunkMovement;
-  const offsetChunkMovement = offsetController.offsetChunk + chunkSlice * chunkMovement;
-  const chunk = arrayBufferData.slice(offsetMovement * chunkSlice, offsetChunkMovement);
+  const offsetChunkMovement = offsetController.offsetChunk + chunkSize * chunkMovement;
+  const chunk = arrayBufferData.slice(offsetMovement * chunkSize, offsetChunkMovement);
   const decodedContent = decodeArrayBuffer(chunk);
   setFileContent(decodedContent);
   setOffsetController({ offset: offsetMovement, offsetChunk: offsetChunkMovement });
