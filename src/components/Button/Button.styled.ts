@@ -8,3 +8,15 @@ export const StyledButton = styled(Button)(({ theme }) => ({
     backgroundColor: theme.palette.secondary.main,
   },
 }));
+
+export const StyledFabButton = styled(Button)(({ theme }) => ({
+  position: 'fixed',
+  bottom: '2rem',
+  right: '2rem',
+  backgroundColor: theme.palette.common.white,
+  width: '2rem',
+  height: '4rem',
+  borderRadius: '50%',
+  cursor: 'pointer',
+  boxShadow: theme.shadow.fabShadow,
+}));

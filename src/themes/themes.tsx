@@ -9,6 +9,9 @@ declare module '@mui/material/styles' {
     common: {
       lightGrey: string;
     };
+    shadow: {
+      fabShadow: string;
+    };
   }
 }
 
@@ -33,6 +36,9 @@ export const theme = {
   },
   common: {
     lightGrey: '#ededed',
+  },
+  shadow: {
+    fabShadow: '0px 3px 6px rgba(0, 0, 0, 0.16)',
   },
 };
 
