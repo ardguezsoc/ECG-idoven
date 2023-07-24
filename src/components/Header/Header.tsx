@@ -11,7 +11,7 @@ export const Header: React.FC = () => {
     <StyledHeader>
       <Image src="/images/idoven-logo.svg" alt="idoven-logo" width={'90px'} />
       <Box id="navLinksContainer">
-        <NavLink to="/history">History</NavLink>
+        <NavLink to="/history">{t('history')}</NavLink>
         <Text>{t('idovenCodeChallenge')}</Text>
       </Box>
     </StyledHeader>

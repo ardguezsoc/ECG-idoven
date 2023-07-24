@@ -1,0 +1,43 @@
+{
+  "idovenCodeChallenge": "Idoven.ai Coding Challenge",
+  "history": "Historial",
+  "dragnDrop": {
+    "dropFilesHere": "Suelta tus ficheros aquí...",
+    "dragnDropFiles": "Arrastra y suelta tus ficheros aquí...",
+    "conditions": "Solo se aceptan ficheros .txt 📝"
+  },
+  "errors": {
+    "noFilesAdded": {
+      "title": "No se han añadido ficheros todavía...",
+      "description": "¿Por qué no añades algún fichero y vuelves?"
+    },
+    "notFoundPage": {
+      "title": "Uuuuuups!",
+      "description": "La página que buscas no existe.",
+      "redirect": "Vuelve a inicio"
+    }
+  },
+
+  "table": {
+    "headers": {
+      "name": "Nombre",
+      "size": "Tamaño (gb)",
+      "date": "Fecha",
+      "type": "Tipo",
+      "extension": "Extension"
+    }
+  },
+  "chart": {
+    "yAxis": {
+      "unit": "uv"
+    }
+  },
+  "button": {
+    "uploadFile": "Pulsa para subir fichero",
+    "resetZoom": "Resetear Zoom",
+    "uploadNewFile": "Subir nuevo fichero",
+    "forward": "Ir adelante >>",
+    "backward": "<< Ir atrás"
+  },
+  "or": "O"
+}
