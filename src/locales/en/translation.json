@@ -1,6 +1,12 @@
 {
   "idovenCodeChallenge": "Idoven.ai Coding Challenge",
   "history": "History",
+  "form": {
+    "title": "Settings",
+    "switch": "High Performance Chart:",
+    "input": "Steps:",
+    "button": "Aplly Settings"
+  },
   "dragnDrop": {
     "dropFilesHere": "Drop the files here...",
     "dragnDropFiles": "Drag and drop some files here...",

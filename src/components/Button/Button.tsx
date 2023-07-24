@@ -10,9 +10,9 @@ export interface StyledButtonProps {
 export const Button: FC<StyledButtonProps> = ({ children, isLoading, ...props }) => {
   return <StyledButton {...props}>{isLoading ? <Spinner /> : children}</StyledButton>;
 };
-export const FabButton: FC<{ icon: string }> = ({ icon }) => {
+export const FabButton: FC<{ icon: string; onClick: () => void }> = ({ icon, onClick }) => {
   return (
-    <StyledFabButton>
+    <StyledFabButton onClick={onClick}>
       <img src={`/icons/${icon}.webp`} alt={icon} />
     </StyledFabButton>
   );
