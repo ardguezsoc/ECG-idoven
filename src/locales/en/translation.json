@@ -34,7 +34,9 @@
   "button": {
     "uploadFile": "Click me To Upload",
     "resetZoom": "Reset Zoom",
-    "uploadNewFile": "Upload New File"
+    "uploadNewFile": "Upload New File",
+    "forward": "Move Forward >>",
+    "backward": "<< Move Backward"
   },
   "or": "Or"
 }

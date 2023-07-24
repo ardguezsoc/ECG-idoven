@@ -1,5 +1,5 @@
 const decoder = new TextDecoder();
-const chunkSize = 10971520;
+const chunkSize = 1097152;
 
 export const decodeArrayBuffer = (arrayBuffer: ArrayBuffer) => decoder.decode(arrayBuffer);
 

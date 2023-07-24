@@ -32,7 +32,13 @@ ChartJS.register(
   zoomPlugin
 );
 
-export const Chart: React.FC<{ chartData: string; resetFile: () => void }> = ({ chartData = '', resetFile }) => {
+interface ChartProps {
+  chartData: string;
+  resetFile: () => void;
+  moveInFile: (offsetMove: 1 | -1) => void;
+}
+
+export const Chart: React.FC<ChartProps> = ({ chartData = '', resetFile, moveInFile }) => {
   const { t } = useTranslation();
   const chartRef = useRef<ChartJS | null>(null);
   const options: ChartOptions<'line'> = {
@@ -97,8 +103,10 @@ export const Chart: React.FC<{ chartData: string; resetFile: () => void }> = ({ 
       {/** @ts-ignore */}
       <Line ref={chartRef} options={options} data={chartDataset} />
       <Box>
+        <Button onClick={() => moveInFile(-1)}>{t('button.backward')}</Button>
         <Button onClick={resetZoom}>{t('button.resetZoom')}</Button>
         <Button onClick={resetFile}>{t('button.uploadNewFile')}</Button>
+        <Button onClick={() => moveInFile(1)}>{t('button.forward')}</Button>
       </Box>
     </StyledChartContainer>
   );

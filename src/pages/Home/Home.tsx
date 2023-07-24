@@ -19,9 +19,13 @@ export const Home = () => {
     sliceArrayBuffer(1, offsetController, auxArrayBuffer, setOffsetController, setFileContent);
   };
 
+  const moveInFile = (offsetMove: 1 | -1) => {
+    sliceArrayBuffer(offsetMove, offsetController, arrayBuffer, setOffsetController, setFileContent);
+  };
+
   return fileContent.length ? (
     <StyledMainContainer>
-      <Chart chartData={fileContent} resetFile={() => setFileContent('')} />
+      <Chart chartData={fileContent} resetFile={() => setFileContent('')} moveInFile={moveInFile} />
     </StyledMainContainer>
   ) : (
     <StyledMainContainerECG>
