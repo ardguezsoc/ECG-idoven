@@ -9,11 +9,11 @@ import { Box } from '@mui/material';
 import { ChartProps } from '../Normal/Chart';
 import { StyledHighChartContainer } from '..';
 
-export const HighChart: React.FC<ChartProps> = ({ chartData = '', resetFile, moveInFile }) => {
+export const HighChart: React.FC<ChartProps> = ({ chartData = '', resetFile, moveInFile, step = 10 }) => {
   const { t } = useTranslation();
   const chartRef = useRef(null);
 
-  const { labels, data } = parseData(chartData);
+  const { labels, data } = parseData(chartData, step);
 
   const options = {
     chart: {

@@ -16,44 +16,46 @@ export const Home = () => {
   const [fileContent, setFileContent] = useState('');
   const [modalStatus, setModalStatus] = useState(false);
   const [offsetController, setOffsetController] = useState<OffsetController>({ offset: -1, offsetChunk: 0 });
-  const [formValues, setFormValues] = useState({ switchValue: false, inputValue: 1 });
+  const [formValues, setFormValues] = useState({ isHighChart: false, step: 10 });
 
   const handleFileContent = async (file: File) => {
     const auxArrayBuffer = await file.arrayBuffer();
     setArrayBuffer(auxArrayBuffer);
-    sliceArrayBuffer(1, offsetController, auxArrayBuffer, setOffsetController, setFileContent, formValues.switchValue);
+    sliceArrayBuffer(1, offsetController, auxArrayBuffer, setOffsetController, setFileContent, formValues);
   };
 
   const moveInFile = (offsetMove: 1 | -1) => {
-    sliceArrayBuffer(
-      offsetMove,
-      offsetController,
-      arrayBuffer,
-      setOffsetController,
-      setFileContent,
-      formValues.switchValue
-    );
+    sliceArrayBuffer(offsetMove, offsetController, arrayBuffer, setOffsetController, setFileContent, formValues);
   };
 
-  const applySettings = (switchValue: boolean, inputValue: number) => {
-    setFormValues({ switchValue, inputValue });
-    sliceArrayBuffer(1, { offset: -1, offsetChunk: 0 }, arrayBuffer, setOffsetController, setFileContent, switchValue);
+  const applySettings = (isHighChart: boolean, step: number) => {
+    setFormValues({ isHighChart, step });
+    sliceArrayBuffer(1, { offset: -1, offsetChunk: 0 }, arrayBuffer, setOffsetController, setFileContent, {
+      isHighChart,
+      step,
+    });
     setModalStatus(false);
   };
 
   return fileContent.length ? (
     <StyledMainContainer>
-      {formValues.switchValue ? (
-        <HighChart chartData={fileContent} resetFile={() => setFileContent('')} moveInFile={moveInFile} />
+      {formValues.isHighChart ? (
+        <HighChart
+          chartData={fileContent}
+          resetFile={() => setFileContent('')}
+          moveInFile={moveInFile}
+          step={formValues.step}
+        />
       ) : (
-        <Chart chartData={fileContent} resetFile={() => setFileContent('')} moveInFile={moveInFile} />
+        <Chart
+          chartData={fileContent}
+          resetFile={() => setFileContent('')}
+          moveInFile={moveInFile}
+          step={formValues.step}
+        />
       )}
       <Modal modalStatus={modalStatus} handleModalStatus={setModalStatus}>
-        <ModalContent
-          submitForm={applySettings}
-          switchValue={formValues.switchValue}
-          inputValue={formValues.inputValue}
-        />
+        <ModalContent submitForm={applySettings} switchValue={formValues.isHighChart} inputValue={formValues.step} />
       </Modal>
       <FabButton onClick={() => setModalStatus(true)} icon="settings" />
     </StyledMainContainer>

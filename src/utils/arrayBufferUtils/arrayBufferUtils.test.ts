@@ -17,9 +17,11 @@ describe('arrayBufferUtils', () => {
   describe('sliceArrayBuffer', () => {
     let arrayBufferData: ArrayBuffer;
     let chunkSize: number;
+    let formValues: { isHighChart: boolean; step: number };
     beforeAll(() => {
       arrayBufferData = new TextEncoder().encode('test').buffer;
-      chunkSize = 1097152;
+      chunkSize = 1000000;
+      formValues = { isHighChart: false, step: 1 };
     });
 
     it('should return the correct offset and offsetChunk', () => {
@@ -31,7 +33,14 @@ describe('arrayBufferUtils', () => {
       };
       const setFileContent = vi.fn();
 
-      sliceArrayBuffer(chunkMovement, offsetController, arrayBufferData, setOffsetController, setFileContent);
+      sliceArrayBuffer(
+        chunkMovement,
+        offsetController,
+        arrayBufferData,
+        setOffsetController,
+        setFileContent,
+        formValues
+      );
       expect(setFileContent).toHaveBeenCalledOnce();
       expect(offsetController).toEqual({ offset: 1, offsetChunk: chunkSize });
     });
@@ -45,7 +54,10 @@ describe('arrayBufferUtils', () => {
       };
       const setFileContent = vi.fn();
 
-      sliceArrayBuffer(chunkMovement, offsetController, arrayBufferData, setOffsetController, setFileContent, true);
+      sliceArrayBuffer(chunkMovement, offsetController, arrayBufferData, setOffsetController, setFileContent, {
+        isHighChart: true,
+        step: 1,
+      });
       expect(setFileContent).toHaveBeenCalledOnce();
       expect(offsetController).toEqual({ offset: 1, offsetChunk: chunkSize * 5 });
     });
@@ -58,7 +70,14 @@ describe('arrayBufferUtils', () => {
       };
       const setFileContent = vi.fn();
 
-      sliceArrayBuffer(chunkMovement, offsetController, arrayBufferData, setOffsetController, setFileContent);
+      sliceArrayBuffer(
+        chunkMovement,
+        offsetController,
+        arrayBufferData,
+        setOffsetController,
+        setFileContent,
+        formValues
+      );
       expect(setFileContent).toHaveBeenCalledOnce();
       expect(offsetController).toEqual({ offset: 0, offsetChunk: 0 });
     });
@@ -66,19 +85,26 @@ describe('arrayBufferUtils', () => {
   describe('parseData', () => {
     it('should return the correct labels and data', () => {
       const rawData = '1,10\n2,11\n3,-5\n4,0';
-      const { labels, data } = parseData(rawData);
+      const { labels, data } = parseData(rawData, 1);
       expect(labels).toEqual([1, 2, 3, 4]);
       expect(data).toEqual([10, 11, -5, 0]);
     });
     it('should return empty labels and data with rawData without numbers', () => {
       const rawData = '';
-      const { labels, data } = parseData(rawData);
+      const { labels, data } = parseData(rawData, 1);
       expect(labels).toEqual([]);
       expect(data).toEqual([]);
     });
     it('should return only first column and third one due a non valid values', () => {
       const rawData = '1,10\n2,\n3,-5\n';
-      const { labels, data } = parseData(rawData);
+      const { labels, data } = parseData(rawData, 1);
+      expect(labels).toEqual([1, 3]);
+      expect(data).toEqual([10, -5]);
+    });
+
+    it('should return only first column and third one due step jump is 2', () => {
+      const rawData = '1,10\n2,\n3,-5\n';
+      const { labels, data } = parseData(rawData, 1);
       expect(labels).toEqual([1, 3]);
       expect(data).toEqual([10, -5]);
     });

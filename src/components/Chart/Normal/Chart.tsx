@@ -36,9 +36,10 @@ export interface ChartProps {
   chartData: string;
   resetFile: () => void;
   moveInFile: (offsetMove: 1 | -1) => void;
+  step: number;
 }
 
-export const Chart: React.FC<ChartProps> = ({ chartData = '', resetFile, moveInFile }) => {
+export const Chart: React.FC<ChartProps> = ({ chartData = '', resetFile, moveInFile, step = 10 }) => {
   const { t } = useTranslation();
   const chartRef = useRef<ChartJS | null>(null);
   const options: ChartOptions<'line'> = {
@@ -80,7 +81,7 @@ export const Chart: React.FC<ChartProps> = ({ chartData = '', resetFile, moveInF
     },
   };
 
-  const { labels, data } = parseData(chartData);
+  const { labels, data } = parseData(chartData, step);
 
   const resetZoom = () => {
     chartRef?.current?.resetZoom();

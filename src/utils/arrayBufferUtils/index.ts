@@ -1,4 +1,6 @@
 const decoder = new TextDecoder();
+const chunkSizeBasicChart = 1000000;
+const chunkSizeHighChart = 5000000;
 
 export const decodeArrayBuffer = (arrayBuffer: ArrayBuffer) => decoder.decode(arrayBuffer);
 
@@ -8,9 +10,11 @@ export const sliceArrayBuffer = (
   arrayBufferData: ArrayBuffer,
   setOffsetController: (offsetController: { offset: number; offsetChunk: number }) => void,
   setFileContent: (fileContent: string) => void,
-  highChart?: boolean
+  formValues: { isHighChart: boolean; step: number }
 ) => {
-  const chunkSize = highChart ? 5485760 : 1097152;
+  const { isHighChart, step } = formValues;
+
+  const chunkSize = (isHighChart ? chunkSizeHighChart : chunkSizeBasicChart) * step;
 
   const offsetMovement = offsetController.offset + chunkMovement;
   const offsetChunkMovement = offsetController.offsetChunk + chunkSize * chunkMovement;
@@ -20,13 +24,13 @@ export const sliceArrayBuffer = (
   setOffsetController({ offset: offsetMovement, offsetChunk: offsetChunkMovement });
 };
 
-export const parseData = (rawData: string) => {
+export const parseData = (rawData: string, step: number) => {
   const rows = rawData.split('\n');
   const labels: number[] = [];
   const data: number[] = [];
 
-  rows.forEach((row) => {
-    const columns = row.split(',');
+  for (let i = 0; i < rows.length; i += step) {
+    const columns = rows[i].split(',');
 
     const xValue = parseFloat(columns[0]);
     const yValue = parseFloat(columns[1]);
@@ -34,7 +38,7 @@ export const parseData = (rawData: string) => {
       labels.push(xValue);
       data.push(yValue);
     }
-  });
+  }
 
   return { labels, data };
 };
