@@ -11,14 +11,14 @@ import {
   ChartOptions,
   registerables,
 } from 'chart.js';
-import { theme } from '../../themes';
+import { theme } from '../../../themes';
 import { Line } from 'react-chartjs-2';
-import { parseData } from '../../utils/arrayBufferUtils';
+import { parseData } from '../../../utils/arrayBufferUtils';
 import { useTranslation } from 'react-i18next';
 import zoomPlugin from 'chartjs-plugin-zoom';
-import { StyledChartContainer } from '.';
+import { StyledChartContainer } from '..';
 import { Box } from '@mui/material';
-import { Button } from '../Button';
+import { Button } from '../../Button';
 
 ChartJS.register(
   ...registerables,
@@ -32,7 +32,7 @@ ChartJS.register(
   zoomPlugin
 );
 
-interface ChartProps {
+export interface ChartProps {
   chartData: string;
   resetFile: () => void;
   moveInFile: (offsetMove: 1 | -1) => void;

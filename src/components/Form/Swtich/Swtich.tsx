@@ -7,5 +7,5 @@ export interface SwitchProps {
 }
 
 export const Switch: FC<SwitchProps> = ({ onChange, value }) => (
-  <SwtichMui color="primary" value={value} onChange={() => onChange(!value)} />
+  <SwtichMui color="primary" checked={value} onChange={() => onChange(!value)} />
 );

@@ -1,6 +1,12 @@
 {
   "idovenCodeChallenge": "Idoven.ai Coding Challenge",
   "history": "Historial",
+  "form": {
+    "title": "Ajustes",
+    "switch": "Diagrama de alto rendimiento:",
+    "input": "Saltos:",
+    "button": "Aplicar cambios"
+  },
   "dragnDrop": {
     "dropFilesHere": "Suelta tus ficheros aquí...",
     "dragnDropFiles": "Arrastra y suelta tus ficheros aquí...",
@@ -29,7 +35,11 @@
   },
   "chart": {
     "yAxis": {
-      "unit": "uv"
+      "unit": "uv",
+      "title": "voltage (uv)"
+    },
+    "xAxis": {
+      "title": "Tiempo (ms)"
     }
   },
   "button": {

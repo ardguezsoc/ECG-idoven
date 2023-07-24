@@ -5,7 +5,7 @@
     "title": "Settings",
     "switch": "High Performance Chart:",
     "input": "Steps:",
-    "button": "Aplly Settings"
+    "button": "Apply Settings"
   },
   "dragnDrop": {
     "dropFilesHere": "Drop the files here...",
@@ -35,7 +35,11 @@
   },
   "chart": {
     "yAxis": {
-      "unit": "uv"
+      "unit": "uv",
+      "title": "voltage"
+    },
+    "xAxis": {
+      "title": "time"
     }
   },
   "button": {

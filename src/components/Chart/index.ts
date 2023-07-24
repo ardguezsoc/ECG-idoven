@@ -1,2 +1,3 @@
-export { Chart } from './Chart';
-export { StyledChartContainer } from './Chart.styled';
+export { Chart } from './Normal/Chart';
+export { HighChart } from './Performance/HighChart';
+export { StyledChartContainer, StyledHighChartContainer } from './Chart.styled';

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { FileHandle } from '../../components/FileHandle/FileHandle';
 import { sliceArrayBuffer } from '../../utils/arrayBufferUtils';
-import { Chart } from '../../components/Chart';
+import { Chart, HighChart } from '../../components/Chart';
 import { StyledMainContainer, StyledMainContainerECG } from './Home.styled';
 import { Modal } from '../../components/Modal';
 import { FabButton } from '../../components/Button';
@@ -35,7 +35,11 @@ export const Home = () => {
 
   return fileContent.length ? (
     <StyledMainContainer>
-      <Chart chartData={fileContent} resetFile={() => setFileContent('')} moveInFile={moveInFile} />
+      {formValues.switchValue ? (
+        <HighChart chartData={fileContent} resetFile={() => setFileContent('')} moveInFile={moveInFile} />
+      ) : (
+        <Chart chartData={fileContent} resetFile={() => setFileContent('')} moveInFile={moveInFile} />
+      )}
       <Modal modalStatus={modalStatus} handleModalStatus={setModalStatus}>
         <ModalContent
           submitForm={applySettings}
