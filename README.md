@@ -91,6 +91,16 @@ To manage the file content I have taken in consideration how is the structure of
 
 Depends the complexity of the component or the view these folders could have an own folder of `components` or `utils` to externalize the logistic related with that view and reducing the file length and increasing the redeability as much as possible.
 
+In this scenario, since we don't have a real backend, there was no need to set up intermediate layers between the view and the API. However, if this were a test involving a real API, I would have implemented two additional layers:
+
+- `Repositories`: The primary responsibility of repositories would be to handle API endpoint calls and data mapping before passing it to other parts of the application. By centralizing these operations, any future changes in the API's attributes or parameters could be managed more efficiently.
+
+- `Services`: The services layer acts as an intermediary between the repositories and hooks. This layer would handle the more data-centric tasks, such as data modifications or additional operations.
+
+Additionally, to enhance data management and API interactions, I would have utilized the [react-query](https://tanstack.com/query/v3/docs/react/overview) library. This powerful library simplifies state management for API calls, provides caching capabilities, and enables easy data manipulation if required. Alongside react query, I would have employed the popular `axios` library for data fetching.
+
+By leveraging these best practices and libraries, the application's structure and data handling would be robust, scalable, and maintainable.
+
 `Github` has been used as code repository, tasking board to manage the different features and running the test in an extenal machine on every main push.
 
 ## Interesting Libraries Added 📘
